@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>EVOXA Pro Academy — Сертификационное обучение для косметологов</title>
+<meta name="description" content="Закрытое профессиональное обучение методу EVOXA для врачей-косметологов. Видеоуроки, тестирование, именной сертификат.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#0a0a0a;
+  --coal:#141414;
+  --carbon:#1e1e1e;
+  --warm-white:#f5ede3;
+  --text-on-dark:#e8e5dd;
+  --text-muted:#888888;
+  --text-dim:#555555;
+  --amber:#c89050;
+  --amber-soft:#d4a06a;
+  --border:rgba(232,229,221,0.08);
+  --border-strong:rgba(232,229,221,0.18);
+  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+  --error:#e07050;
+  --success:#7ab070;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{
+  overflow-x:hidden;max-width:100vw;
+  background:var(--black);
+  color:var(--text-on-dark);
+  font-family:'Inter',-apple-system,sans-serif;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+img,video,iframe{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;color:inherit}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:20px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-size:18px;font-weight:300;letter-spacing:6px;color:var(--text-on-dark);
+  display:flex;align-items:center;gap:14px;
+}
+.nav-logo-evoxa{color:var(--text-on-dark)}
+.nav-logo-pro{
+  font-size:9px;letter-spacing:3px;
+  color:var(--amber);
+  border:1px solid var(--amber);
+  padding:4px 10px;
+  text-transform:uppercase;
+}
+.nav-link-back{
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--text-muted);
+  display:flex;align-items:center;gap:10px;
+  transition:color .3s ease;
+}
+.nav-link-back:hover{color:var(--amber)}
+
+/* ============ PAGES ============ */
+.page{display:none}
+.page.active{display:block;animation:pageIn .6s var(--ease-out-expo)}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100vh;min-height:100svh;
+  display:flex;align-items:center;
+  padding:120px 48px 80px;
+  position:relative;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(200,144,80,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(200,144,80,0.04) 0%, transparent 60%),
+    var(--black);
+}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%}
+.hero-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:5px;
+  text-transform:uppercase;
+  color:var(--amber);
+  margin-bottom:32px;
+}
+.hero-title{
+  font-size:clamp(40px,6vw,82px);
+  font-weight:200;line-height:1;letter-spacing:-0.02em;
+  text-transform:uppercase;
+  margin-bottom:32px;
+}
+.hero-title .em{
+  display:inline-block;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;letter-spacing:-0.01em;
+}
+.hero-lead{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(20px,2vw,26px);
+  line-height:1.5;color:var(--text-on-dark);
+  max-width:680px;
+  margin-bottom:48px;
+}
+.hero-meta{
+  display:flex;gap:60px;flex-wrap:wrap;
+  padding:32px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  margin-bottom:48px;
+}
+.hero-meta-item{}
+.hero-meta-label{
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:8px;
+}
+.hero-meta-value{
+  font-size:18px;font-weight:400;color:var(--text-on-dark);
+}
+
+/* ============ BUTTON ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:18px 36px;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:500;
+  cursor:pointer;
+  transition:all .3s var(--ease-out-expo);
+  min-height:54px;
+}
+.btn-primary{
+  background:var(--amber);color:var(--black);
+}
+.btn-primary:hover{
+  background:var(--amber-soft);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(200,144,80,0.3);
+}
+.btn-outline{
+  background:transparent;
+  color:var(--text-on-dark);
+  border:1px solid var(--border-strong);
+}
+.btn-outline:hover{
+  border-color:var(--amber);
+  color:var(--amber);
+}
+.btn .arrow{font-size:16px;transition:transform .3s ease}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* ============ SECTIONS ============ */
+.section{padding:100px 48px;max-width:1280px;margin:0 auto}
+.section-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.section-title{
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:24px;
+}
+.section-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;
+}
+.section-lead{
+  font-size:17px;line-height:1.65;color:var(--text-muted);
+  max-width:680px;margin-bottom:60px;
+}
+
+/* ============ COURSE OVERVIEW ============ */
+.overview-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+}
+.overview-item{
+  background:var(--coal);
+  padding:40px 32px;
+}
+.overview-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:48px;color:var(--amber);
+  line-height:1;margin-bottom:14px;
+}
+.overview-name{
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-on-dark);font-weight:500;
+  margin-bottom:10px;
+}
+.overview-desc{
+  font-size:14px;line-height:1.6;color:var(--text-muted);
+}
+
+/* ============ LESSONS LIST ============ */
+.lessons-list{
+  display:flex;flex-direction:column;
+  border-top:1px solid var(--border);
+}
+.lesson-row{
+  display:grid;
+  grid-template-columns:60px 1fr 120px 100px;
+  gap:24px;align-items:center;
+  padding:24px 16px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition:background .3s ease;
+}
+.lesson-row:hover{background:var(--coal)}
+.lesson-row.active{background:var(--coal);border-left:2px solid var(--amber);padding-left:14px}
+.lesson-row.completed .lesson-num{color:var(--amber)}
+.lesson-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:24px;color:var(--text-dim);
+}
+.lesson-name{
+  font-size:15px;font-weight:400;color:var(--text-on-dark);
+  line-height:1.4;
+}
+.lesson-time{
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-muted);
+  text-align:right;
+}
+.lesson-status{
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-muted);
+  text-align:right;
+}
+.lesson-status.completed{color:var(--amber)}
+.lesson-status .check{display:none}
+.lesson-row.completed .lesson-status .check{display:inline}
+.lesson-row.completed .lesson-status .label{display:none}
+
+/* ============ VIDEO PLAYER ============ */
+.player-section{
+  background:var(--coal);
+  padding:60px 48px;
+}
+.player-wrap{
+  max-width:1100px;margin:0 auto;
+}
+.player-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:32px;flex-wrap:wrap;gap:24px;
+}
+.player-title-block{flex:1;min-width:280px}
+.player-eyebrow{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:14px;
+}
+.player-title{
+  font-size:clamp(24px,3vw,36px);
+  font-weight:300;line-height:1.15;color:var(--text-on-dark);
+}
+.player-progress{
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-muted);
+  text-align:right;
+}
+.player-progress .v{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:20px;color:var(--amber);margin:0 4px;
+}
+.player-frame-wrap{
+  position:relative;width:100%;
+  aspect-ratio:16/9;
+  background:var(--black);
+  margin-bottom:32px;
+  border:1px solid var(--border);
+}
+.player-frame{
+  position:absolute;inset:0;width:100%;height:100%;border:0;
+}
+.player-actions{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:20px;
+}
+.player-nav-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-on-dark);
+  border:1px solid var(--border-strong);
+  transition:all .3s ease;
+}
+.player-nav-btn:hover{border-color:var(--amber);color:var(--amber)}
+.player-nav-btn:disabled{opacity:0.3;cursor:not-allowed}
+.player-nav-btn:disabled:hover{border-color:var(--border-strong);color:var(--text-on-dark)}
+
+/* Lesson notes / materials */
+.lesson-notes{
+  margin-top:48px;padding:32px;
+  background:var(--black);
+  border:1px solid var(--border);
+}
+.notes-eyebrow{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:18px;
+}
+.notes-body{
+  font-size:15px;line-height:1.75;color:var(--text-on-dark);
+}
+.notes-body h3{
+  font-size:16px;font-weight:500;color:var(--amber);
+  margin:24px 0 12px;letter-spacing:0.3px;
+}
+.notes-body p{margin-bottom:14px}
+.notes-body ul{margin:14px 0 14px 0;padding-left:0;list-style:none}
+.notes-body li{
+  position:relative;padding-left:24px;margin-bottom:10px;line-height:1.6;
+}
+.notes-body li::before{
+  content:'';position:absolute;left:0;top:11px;
+  width:12px;height:1px;background:var(--amber);
+}
+
+/* ============ QUIZ ============ */
+.quiz-section{
+  min-height:80vh;
+  padding:80px 48px;
+  background:var(--coal);
+}
+.quiz-wrap{max-width:760px;margin:0 auto}
+.quiz-header{
+  text-align:center;margin-bottom:60px;
+}
+.quiz-header .eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:20px;
+}
+.quiz-header h1{
+  font-size:clamp(28px,4vw,44px);
+  font-weight:200;letter-spacing:-0.01em;
+  margin-bottom:18px;text-transform:uppercase;
+}
+.quiz-header p{
+  font-size:15px;color:var(--text-muted);
+  max-width:560px;margin:0 auto;
+}
+.quiz-progress-bar{
+  height:2px;background:var(--border);
+  margin:48px 0 32px;
+  position:relative;
+}
+.quiz-progress-fill{
+  position:absolute;left:0;top:0;height:100%;
+  background:var(--amber);
+  transition:width .5s var(--ease-out-expo);
+  width:0%;
+}
+.quiz-progress-text{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.quiz-question{
+  margin-bottom:40px;
+}
+.quiz-q-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:42px;color:var(--amber);
+  line-height:1;margin-bottom:18px;
+}
+.quiz-q-text{
+  font-size:22px;font-weight:300;line-height:1.4;
+  color:var(--text-on-dark);
+  margin-bottom:8px;
+}
+.quiz-q-hint{
+  font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:32px;
+}
+
+.quiz-options{
+  display:flex;flex-direction:column;gap:12px;
+}
+.quiz-option{
+  display:flex;align-items:flex-start;gap:18px;
+  padding:22px 26px;
+  background:var(--black);
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:all .3s ease;
+}
+.quiz-option:hover{
+  border-color:var(--border-strong);
+  background:var(--carbon);
+}
+.quiz-option.selected{
+  border-color:var(--amber);
+  background:rgba(200,144,80,0.06);
+}
+.quiz-option-mark{
+  width:22px;height:22px;flex-shrink:0;
+  border:1px solid var(--border-strong);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;
+  transition:all .3s ease;
+}
+.quiz-option.multi .quiz-option-mark{border-radius:3px}
+.quiz-option.selected .quiz-option-mark{
+  border-color:var(--amber);
+  background:var(--amber);
+}
+.quiz-option.selected .quiz-option-mark::after{
+  content:'';
+  width:8px;height:8px;border-radius:50%;
+  background:var(--black);
+}
+.quiz-option.multi.selected .quiz-option-mark::after{
+  content:'✓';color:var(--black);font-size:14px;font-weight:700;
+  background:transparent;width:auto;height:auto;border-radius:0;
+}
+.quiz-option-text{
+  font-size:15px;line-height:1.5;color:var(--text-on-dark);
+  flex:1;
+}
+
+.quiz-actions{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:48px;flex-wrap:wrap;gap:16px;
+}
+
+/* RESULT */
+.quiz-result{
+  text-align:center;
+  padding:60px 32px;
+}
+.result-icon{
+  width:80px;height:80px;
+  margin:0 auto 32px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;
+  border:1px solid var(--amber);
+  color:var(--amber);
+}
+.result-icon.failed{
+  border-color:var(--error);color:var(--error);
+}
+.result-score{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:64px;color:var(--amber);line-height:1;margin-bottom:14px;
+}
+.result-score.failed{color:var(--error)}
+.result-title{
+  font-size:24px;font-weight:300;
+  margin-bottom:14px;
+}
+.result-desc{
+  font-size:15px;color:var(--text-muted);
+  max-width:480px;margin:0 auto 40px;line-height:1.6;
+}
+
+/* ============ FORM ============ */
+.form-section{
+  min-height:80vh;
+  padding:80px 48px;
+}
+.form-wrap{max-width:680px;margin:0 auto}
+.form-header{text-align:center;margin-bottom:56px}
+.form-header .eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:20px;
+}
+.form-header h1{
+  font-size:clamp(28px,4vw,44px);font-weight:200;
+  letter-spacing:-0.01em;margin-bottom:18px;text-transform:uppercase;
+}
+.form-header p{
+  font-size:15px;color:var(--text-muted);
+  max-width:520px;margin:0 auto;
+}
+
+.form-row{margin-bottom:28px}
+.form-row.two{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.form-label{
+  display:block;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:10px;
+}
+.form-label .req{color:var(--amber);margin-left:4px}
+.form-input,.form-select{
+  width:100%;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid var(--border-strong);
+  padding:12px 0;
+  font-size:16px;
+  color:var(--text-on-dark);
+  font-weight:400;
+  transition:border-color .3s ease;
+}
+.form-input:focus,.form-select:focus{
+  outline:none;
+  border-color:var(--amber);
+}
+.form-input::placeholder{color:var(--text-dim)}
+.form-select{
+  cursor:pointer;
+  background:var(--black);
+  border:1px solid var(--border-strong);
+  padding:14px 16px;
+}
+
+.form-type-row{
+  display:flex;gap:14px;margin-bottom:8px;
+}
+.form-type-btn{
+  flex:1;
+  padding:18px 20px;
+  background:var(--black);
+  border:1px solid var(--border-strong);
+  cursor:pointer;
+  font-size:13px;
+  letter-spacing:1px;
+  color:var(--text-on-dark);
+  text-align:center;
+  transition:all .3s ease;
+}
+.form-type-btn:hover{border-color:var(--text-muted)}
+.form-type-btn.selected{
+  border-color:var(--amber);
+  background:rgba(200,144,80,0.06);
+  color:var(--amber);
+}
+
+.form-clinic-row{display:none}
+.form-clinic-row.visible{display:block}
+
+.form-checkbox-row{
+  display:flex;align-items:flex-start;gap:12px;
+  margin:36px 0;
+  cursor:pointer;
+}
+.form-checkbox{
+  flex-shrink:0;
+  width:22px;height:22px;
+  border:1px solid var(--border-strong);
+  background:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;
+  transition:all .3s ease;
+}
+.form-checkbox.checked{
+  background:var(--amber);border-color:var(--amber);
+}
+.form-checkbox.checked::after{
+  content:'✓';color:var(--black);font-size:14px;font-weight:700;
+}
+.form-checkbox-label{
+  font-size:13px;line-height:1.6;color:var(--text-muted);
+}
+.form-checkbox-label a{
+  color:var(--amber);text-decoration:underline;
+}
+
+.form-submit-row{
+  margin-top:40px;
+}
+.form-submit-btn{
+  width:100%;
+  padding:20px 32px;
+  background:var(--amber);
+  color:var(--black);
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:600;
+  cursor:pointer;
+  transition:all .3s ease;
+  min-height:56px;
+}
+.form-submit-btn:hover:not(:disabled){
+  background:var(--amber-soft);
+}
+.form-submit-btn:disabled{
+  opacity:0.5;cursor:not-allowed;
+}
+.form-error{
+  background:rgba(224,112,80,0.1);
+  border:1px solid var(--error);
+  color:var(--error);
+  padding:14px 18px;
+  font-size:13px;
+  margin-top:20px;
+  display:none;
+}
+.form-error.visible{display:block}
+
+/* ============ THANK YOU ============ */
+.thanks-section{
+  min-height:90vh;
+  padding:80px 48px;
+  display:flex;align-items:center;justify-content:center;
+}
+.thanks-wrap{
+  max-width:600px;margin:0 auto;text-align:center;
+}
+.thanks-icon{
+  width:100px;height:100px;
+  margin:0 auto 40px;
+  border-radius:50%;
+  border:1px solid var(--amber);
+  display:flex;align-items:center;justify-content:center;
+  font-size:40px;color:var(--amber);
+}
+.thanks-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.thanks-title{
+  font-size:clamp(32px,4.5vw,52px);
+  font-weight:200;letter-spacing:-0.02em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.thanks-cert{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:22px;color:var(--amber);
+  margin-bottom:28px;
+}
+.thanks-desc{
+  font-size:16px;line-height:1.7;color:var(--text-muted);
+  max-width:520px;margin:0 auto 40px;
+}
+.thanks-actions{
+  display:flex;gap:16px;flex-wrap:wrap;justify-content:center;
+}
+
+/* ============ FOOTER ============ */
+.footer{
+  padding:48px;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+.footer-text{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-dim);
+}
+.footer-text a{color:var(--text-muted);transition:color .3s ease}
+.footer-text a:hover{color:var(--amber)}
+
+/* ============ LOADER ============ */
+.loader{
+  display:inline-block;
+  width:18px;height:18px;
+  border:2px solid rgba(10,10,10,0.3);
+  border-top-color:var(--black);
+  border-radius:50%;
+  animation:spin 0.8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============ MOBILE ============ */
+@media (max-width:768px){
+  .nav{padding:16px 20px}
+  .nav-logo{font-size:14px;letter-spacing:4px;gap:10px}
+  .nav-logo-pro{font-size:8px;letter-spacing:2px;padding:3px 7px}
+  .nav-link-back{font-size:9px;letter-spacing:1.5px}
+  .nav-link-back .text-full{display:none}
+  
+  .hero{padding:100px 20px 60px}
+  .hero-title{font-size:clamp(32px,9vw,52px)!important}
+  .hero-lead{font-size:17px!important;margin-bottom:36px}
+  .hero-meta{gap:32px;padding:24px 0;margin-bottom:36px}
+  .hero-meta-value{font-size:15px}
+  .hero-meta-label{font-size:8px;letter-spacing:1.5px}
+  
+  .btn{padding:16px 28px;font-size:10px;letter-spacing:2px;min-height:50px;width:100%;justify-content:center}
+  
+  .section{padding:60px 20px}
+  .section-title{font-size:clamp(26px,7vw,40px)!important}
+  .section-lead{font-size:15px!important;margin-bottom:40px}
+  
+  .overview-grid{grid-template-columns:1fr}
+  .overview-item{padding:28px 24px}
+  
+  .lesson-row{
+    grid-template-columns:40px 1fr;
+    gap:14px;padding:18px 8px;
+  }
+  .lesson-row.active{padding-left:6px}
+  .lesson-time,.lesson-status{display:none}
+  .lesson-num{font-size:20px}
+  .lesson-name{font-size:14px}
+  
+  .player-section{padding:40px 20px}
+  .player-header{margin-bottom:24px}
+  .player-progress{text-align:left}
+  .player-actions{flex-direction:column}
+  .player-nav-btn{width:100%;justify-content:center;padding:14px 20px}
+  .lesson-notes{padding:24px 20px;margin-top:32px}
+  .notes-body{font-size:14px}
+  
+  .quiz-section,.form-section{padding:60px 20px}
+  .quiz-header{margin-bottom:40px}
+  .quiz-progress-bar{margin:32px 0 24px}
+  .quiz-q-num{font-size:36px}
+  .quiz-q-text{font-size:18px}
+  .quiz-option{padding:18px 20px;gap:14px}
+  .quiz-option-text{font-size:14px}
+  .quiz-actions{flex-direction:column}
+  .quiz-actions .btn{width:100%}
+  
+  .form-header{margin-bottom:40px}
+  .form-row.two{grid-template-columns:1fr;gap:0}
+  .form-row.two .form-row{margin-bottom:28px}
+  .form-input,.form-select{font-size:16px}
+  .form-type-row{flex-direction:column;gap:10px}
+  
+  .result-score{font-size:48px}
+  .result-title{font-size:20px}
+  .result-icon{width:64px;height:64px;font-size:28px}
+  
+  .thanks-section{padding:60px 20px}
+  .thanks-icon{width:80px;height:80px;font-size:32px;margin-bottom:30px}
+  .thanks-title{font-size:clamp(26px,7vw,40px)!important}
+  .thanks-cert{font-size:18px}
+  .thanks-desc{font-size:14px;margin-bottom:32px}
+  .thanks-actions .btn{width:100%}
+  
+  .footer{padding:32px 20px}
+  .footer-text{font-size:9px;letter-spacing:1.5px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <span class="nav-logo-evoxa">evoxa</span>
+    <span class="nav-logo-pro">PRO</span>
+  </div>
+  <a href="https://evoxa.es" class="nav-link-back">
+    <span>←</span>
+    <span class="text-full">На главный сайт</span>
+  </a>
+</nav>
+
+<!-- ============ PAGE: HOME ============ -->
+<main class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">— Pro Academy · Закрытый раздел —</div>
+      <h1 class="hero-title">
+        Сертификационное<br>
+        <span class="em">обучение методу EVOXA</span>
+      </h1>
+      <p class="hero-lead">
+        Профессиональная программа для врачей-косметологов. Видеоуроки, протоколы работы, тестирование и именной сертификат с уникальным номером.
+      </p>
+      
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-label">Длительность</div>
+          <div class="hero-meta-value">~3,5 часа</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-label">Формат</div>
+          <div class="hero-meta-value">Онлайн, без сроков</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-label">Сертификат</div>
+          <div class="hero-meta-value">Именной PDF</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-label">Стоимость</div>
+          <div class="hero-meta-value" style="color:var(--amber)">Бесплатно</div>
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" onclick="goCourse()">
+        <span>Начать обучение</span>
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-eyebrow">— Программа курса —</div>
+    <h2 class="section-title">
+      Один курс. <span class="em">Полная линейка.</span>
+    </h2>
+    <p class="section-lead">
+      Курс охватывает всю линейку EVOXA PEEL: показания, противопоказания, протоколы работы с каждым препаратом, нейтрализация через TONIC, постпроцедурный уход и сочетания с другими методиками.
+    </p>
+    
+    <div class="overview-grid">
+      <div class="overview-item">
+        <div class="overview-num">01</div>
+        <div class="overview-name">Видеоуроки</div>
+        <div class="overview-desc">4 видео-урока по протоколам PEEL 1, 2, 3 и TONIC. Каждый урок — отдельная процедура с разбором показаний и техники.</div>
+      </div>
+      <div class="overview-item">
+        <div class="overview-num">02</div>
+        <div class="overview-name">Тестирование</div>
+        <div class="overview-desc">10 вопросов по материалу курса. Проходной балл — 7 из 10. Пересдача доступна сразу.</div>
+      </div>
+      <div class="overview-item">
+        <div class="overview-num">03</div>
+        <div class="overview-name">Сертификат</div>
+        <div class="overview-desc">Именной PDF-сертификат с уникальным номером. Доступ к учебным материалам и промо-инструментам.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="section-eyebrow">— Уроки курса —</div>
+    <h2 class="section-title">
+      Программа из <span class="em">четырёх уроков</span>
+    </h2>
+    
+    <div class="lessons-list" id="lessonsListHome"></div>
+    
+    <div style="margin-top:48px;text-align:center">
+      <button class="btn btn-primary" onclick="goCourse()">
+        <span>Начать обучение</span>
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAGE: COURSE ============ -->
+<main class="page" id="page-course">
+  <section class="player-section">
+    <div class="player-wrap">
+      <div class="player-header">
+        <div class="player-title-block">
+          <div class="player-eyebrow" id="lessonEyebrow">Урок 1 из 7</div>
+          <h1 class="player-title" id="lessonTitle">Введение в метод EVOXA</h1>
+        </div>
+        <div class="player-progress">
+          Прогресс <span class="v" id="progressValue">0%</span>
+        </div>
+      </div>
+      
+      <div class="player-frame-wrap">
+        <iframe class="player-frame" id="playerFrame" src="" allowfullscreen></iframe>
+      </div>
+      
+      <div class="player-actions">
+        <button class="player-nav-btn" id="prevBtn" onclick="prevLesson()">
+          <span>←</span><span>Предыдущий урок</span>
+        </button>
+        <button class="btn btn-primary" id="nextBtn" onclick="nextLesson()">
+          <span id="nextBtnText">Следующий урок</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+      
+      <div class="lesson-notes">
+        <div class="notes-eyebrow">— Конспект урока —</div>
+        <div class="notes-body" id="lessonNotes"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:60px;padding-bottom:80px">
+    <div class="section-eyebrow">— Содержание —</div>
+    <h2 class="section-title" style="font-size:clamp(22px,3vw,32px)">Все уроки курса</h2>
+    <div class="lessons-list" id="lessonsListCourse" style="margin-top:24px"></div>
+  </section>
+</main>
+
+<!-- ============ PAGE: QUIZ ============ -->
+<main class="page" id="page-quiz">
+  <section class="quiz-section">
+    <div class="quiz-wrap">
+      <div class="quiz-header">
+        <div class="eyebrow">— Финальное тестирование —</div>
+        <h1>Тест по курсу EVOXA PEEL</h1>
+        <p>10 вопросов по материалу курса. Проходной балл — 7 из 10. В случае неудачи можно сразу пересдать.</p>
+      </div>
+      
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+      </div>
+      <div class="quiz-progress-text" id="quizProgressText">Вопрос 1 из 10</div>
+      
+      <div id="quizContent"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAGE: FORM ============ -->
+<main class="page" id="page-form">
+  <section class="form-section">
+    <div class="form-wrap">
+      <div class="form-header">
+        <div class="eyebrow">— Получение сертификата —</div>
+        <h1>Заполните данные</h1>
+        <p>После отправки сертификат и доступ к материалам курса придут на ваш email в течение нескольких минут.</p>
+      </div>
+      
+      <form id="certForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <label class="form-label">ФИО полностью <span class="req">*</span></label>
+          <input type="text" class="form-input" id="fld-name" required placeholder="Иванова Анна Сергеевна">
+        </div>
+        
+        <div class="form-row">
+          <label class="form-label">Тип специалиста <span class="req">*</span></label>
+          <div class="form-type-row">
+            <button type="button" class="form-type-btn" data-type="private" onclick="selectType('private')">Частный врач</button>
+            <button type="button" class="form-type-btn" data-type="clinic" onclick="selectType('clinic')">Клиника</button>
+          </div>
+        </div>
+        
+        <div class="form-row form-clinic-row" id="clinicRow">
+          <label class="form-label">Название клиники <span class="req">*</span></label>
+          <input type="text" class="form-input" id="fld-clinic" placeholder="Название клиники полностью">
+        </div>
+        
+        <div class="form-row two">
+          <div>
+            <label class="form-label">Город <span class="req">*</span></label>
+            <input type="text" class="form-input" id="fld-city" required placeholder="Москва">
+          </div>
+          <div>
+            <label class="form-label">Телефон <span class="req">*</span></label>
+            <input type="tel" class="form-input" id="fld-phone" required placeholder="+7 999 000 00 00">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <label class="form-label">Email <span class="req">*</span></label>
+          <input type="email" class="form-input" id="fld-email" required placeholder="your@email.com">
+        </div>
+        
+        <label class="form-checkbox-row" onclick="toggleConsent()">
+          <span class="form-checkbox" id="consentBox"></span>
+          <span class="form-checkbox-label">
+            Я согласен(а) на обработку персональных данных в соответствии с <a href="#" onclick="event.stopPropagation();alert('Политика конфиденциальности будет добавлена')">политикой конфиденциальности</a>
+          </span>
+        </label>
+        
+        <div class="form-submit-row">
+          <button type="submit" class="form-submit-btn" id="submitBtn">
+            Получить сертификат
+          </button>
+        </div>
+        
+        <div class="form-error" id="formError"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAGE: THANKS ============ -->
+<main class="page" id="page-thanks">
+  <section class="thanks-section">
+    <div class="thanks-wrap">
+      <div class="thanks-icon">✓</div>
+      <div class="thanks-eyebrow">— Поздравляем —</div>
+      <h1 class="thanks-title">Сертификат отправлен</h1>
+      <div class="thanks-cert" id="thanksCertNum"></div>
+      <p class="thanks-desc">
+        В течение нескольких минут на ваш email придёт письмо с PDF-сертификатом и ссылкой на учебные материалы. Если письмо не пришло — проверьте папку «Спам».
+      </p>
+      <div class="thanks-actions">
+        <a href="https://evoxa.es" class="btn btn-outline">
+          <span>На главный сайт</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-text">
+    EVOXA Pro Academy · Barcelona · <a href="https://evoxa.es">evoxa.es</a>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const API_URL = 'https://script.google.com/macros/s/AKfycbzKUpbMoqHyexKAo6dfqMBvg1S2PldImgFZ_l1qUEI0chaMYDSjiRLkfTeONG3-12Vi/exec';
+const TOKEN = 'EvoxaProAcademy2026Anna';
+const COURSE_NAME = 'EVOXA PEEL — Сертификационный курс';
+
+// ============================================================
+// LESSONS — RuTube embed URLs (заменить на реальные)
+// ============================================================
+const LESSONS = [
+  {
+    id: 1,
+    title: 'EVOXA PEEL 1 — стартовый протокол',
+    duration: '42:00',
+    embed: 'https://rutube.ru/play/embed/b8de1d156470f6cae1a5f75cf83c9a40/?p=KlmfAreigwyqvfW42_wyUg&skinColor=000000',
+    notes: `
+      <p>EVOXA PEEL 1 — стартовый уровень линейки. Применяется для чувствительной и тонкой кожи, как первое знакомство с методом, для подготовки к более глубоким протоколам и для профилактики возрастных изменений.</p>
+      <h3>Линейка EVOXA</h3>
+      <ul>
+        <li>EVOXA PEEL 1 — стартовый уровень</li>
+        <li>EVOXA PEEL 2 — средний ремодулятор, работа с пигментом</li>
+        <li>EVOXA PEEL 3 — глубокий уровень, выраженные возрастные изменения</li>
+        <li>EVOXA TONIC — нейтрализатор с эффектом карбокситерапии</li>
+      </ul>
+      <p>Всего в серии <strong>4 препарата</strong>. EVOXA PEEL — это <strong>селективный двухфазный дермальный ремодулятор</strong>, не классический пилинг.</p>
+      <h3>Производство</h3>
+      <p>Продукция выпускается в <strong>Барселоне</strong> в лаборатории Gecanor.</p>
+      <h3>Протокол PEEL 1</h3>
+      <p>Очищение → обезжиривание → нанесение PEEL 1 кистью → экспозиция 2-3 мин → нейтрализация TONIC → влажная аппликация → SPF50+.</p>
+    `
+  },
+  {
+    id: 2,
+    title: 'EVOXA PEEL 2 — работа с пигментом',
+    duration: '48:00',
+    embed: 'https://rutube.ru/play/embed/a9a771f89881581f6f8150b9506f89da/?p=NDAPsDdskbjUA94c6Ykxjw&skinColor=000000',
+    notes: `
+      <h3>Показания</h3>
+      <ul>
+        <li>Поствоспалительная гиперпигментация (PIH)</li>
+        <li><strong>Мелазма умеренной степени</strong> — основное показание</li>
+        <li>Постакне с пигментными последствиями</li>
+        <li>Мелкоморщинистый тип старения</li>
+      </ul>
+      <h3>Состав PEEL 2</h3>
+      <p>Дополнительные ингредиенты:</p>
+      <ul>
+        <li>Аспаргиновая кислота</li>
+        <li>Аргинин</li>
+        <li>Уникальный NMF-бустер комплекс</li>
+      </ul>
+      <p><strong>Внимание:</strong> ретинил пальмитат в PEEL 2 НЕ входит.</p>
+      <h3>Протокол</h3>
+      <p>Подготовка кожи AHA 8-10% за 14 дней. В кабинете: очищение → PEEL 2 кистью №2 → экспозиция 3-4 мин → frosting → нейтрализация TONIC до исчезновения CO2-реакции → влажная марля 5 мин → SPF.</p>
+    `
+  },
+  {
+    id: 3,
+    title: 'EVOXA PEEL 3 — глубокий ремодулятор',
+    duration: '56:00',
+    embed: 'https://rutube.ru/play/embed/2ad71acdccf9d49755c4d7fb574f5462/?p=Ef5Sbay25fkGM5-wHciiig&skinColor=E0E0E0',
+    notes: `
+      <h3>Показания</h3>
+      <ul>
+        <li><strong>Выраженные возрастные изменения</strong> — основное показание</li>
+        <li>Глубокая работа с дермой</li>
+        <li>Глубокие постакне-рубцы (точечная работа)</li>
+      </ul>
+      <h3>EVOXA TONIC и эффект Вериго-Бора</h3>
+      <p>TONIC — это <strong>вторая фаза процедуры</strong>, обязательная для каждого протокола PEEL. Формирует локальный карбокси-эффект через реакцию с кислотой и образование CO2.</p>
+      <p>Локальное повышение CO2 в тканях <strong>усиливает кислородный обмен</strong> — гемоглобин активнее отдаёт кислород в ткани (эффект Вериго-Бора). Это даёт противовоспалительный эффект и усиливает результат процедуры.</p>
+      <h3>Видимый момент окончания реакции</h3>
+      <p>Пена CO2 на коже — маркер активной нейтрализации. Когда пена перестаёт образовываться — реакция полностью завершена.</p>
+      <h3>Особенности</h3>
+      <p>Только для специалистов с пройденными уроками по PEEL 1 и 2. Требует строгого протокола подготовки и реабилитации.</p>
+    `
+  },
+  {
+    id: 4,
+    title: 'Биоревитализация + EVOXA PEEL — комбо-протокол',
+    duration: '1:12:00',
+    embed: 'https://rutube.ru/play/embed/521e5a25bd815a9f06c48bd2309de145/?p=iUnID1PMVltYwEta-KCBHg&skinColor=FFB300',
+    notes: `
+      <h3>Сочетания EVOXA PEEL с другими методиками</h3>
+      <p>EVOXA PEEL хорошо сочетается с:</p>
+      <ul>
+        <li><strong>Биоревитализацией</strong> — через 7-14 дней после процедуры PEEL</li>
+        <li><strong>IPL-терапией</strong> — может проводиться в комплексной программе с интервалом</li>
+        <li>Мезотерапией восстанавливающими коктейлями</li>
+      </ul>
+      <h3>С чем НЕ сочетается</h3>
+      <ul>
+        <li>Жёлтый пилинг (ретиноевый) в активной фазе</li>
+        <li>Лазерная шлифовка (нужна пауза)</li>
+        <li>Любые ранящие процедуры в зоне обработки</li>
+      </ul>
+      <h3>Постпроцедурный уход</h3>
+      <ul>
+        <li><strong>День 1-3</strong> — острая фаза. Только успокаивающий уход, SPF50+ каждые 2 часа</li>
+        <li><strong>День 4-7</strong> — шелушение. Не отшелушивать механически. Питательный крем</li>
+        <li><strong>День 8-14</strong> — регенерация. Возврат к лёгкому уходу, продолжать SPF</li>
+      </ul>
+      <h3>Ключевые выгоды для врача</h3>
+      <ul>
+        <li><strong>Предсказуемый результат</strong> — видимый момент окончания реакции</li>
+        <li><strong>Всесезонное применение</strong> — работаем летом и зимой</li>
+        <li>Без длительной реабилитации и социального простоя</li>
+      </ul>
+    `
+  }
+];
+
+// ============================================================
+// QUIZ — вопросы и правильные ответы
+// ============================================================
+const QUIZ = [
+  {
+    q: 'Сколько препаратов в серии EVOXA PEEL?',
+    options: ['6', '3', '4', '5'],
+    correct: [2], // индекс правильного (0-based)
+    type: 'single'
+  },
+  {
+    q: 'Для какого состояния кожи предназначен препарат EVOXA PEEL 3?',
+    options: ['Обезвоженная кожа', 'Выраженные возрастные изменения', 'Сниженный тургор и тонус кожи', 'Купероз и розацеа'],
+    correct: [1],
+    type: 'single'
+  },
+  {
+    q: 'Выберите неверный ответ. EVOXA TONIC:',
+    options: ['Вторая фаза процедуры', 'Может не применяться', 'Формирует локальный карбокси-эффект', 'Усиливает результат процедуры и оказывает противовоспалительный эффект'],
+    correct: [1],
+    type: 'single'
+  },
+  {
+    q: 'В каком городе Испании выпускается продукция EVOXA?',
+    options: ['Мадрид', 'Барселона', 'Валенсия', 'Севилья'],
+    correct: [1],
+    type: 'single'
+  },
+  {
+    q: 'Какой из препаратов EVOXA назначается при мелазме?',
+    options: ['EVOXA PEEL 3', 'EVOXA PEEL 1', 'EVOXA PEEL 2'],
+    correct: [2],
+    type: 'single'
+  },
+  {
+    q: 'Выберите неправильный ответ. Дополнительные ингредиенты в EVOXA PEEL 2:',
+    options: ['Аспаргиновая кислота', 'Аргинин', 'Ретинил пальмитат', 'Уникальный NMF-бустер комплекс'],
+    correct: [2],
+    type: 'single'
+  },
+  {
+    q: 'Эффект Вериго-Бора:',
+    options: ['Усиливает кислородный обмен в тканях', 'Провоцирует субклиническое воспаление', 'Усиливает действие кислот', 'Снижает pH'],
+    correct: [0],
+    type: 'single'
+  },
+  {
+    q: 'EVOXA PEEL — это:',
+    options: ['Поверхностный пилинг', 'Селективный двухфазный дермальный ремодулятор', 'Этап глубокого очищения в уходовой процедуре', 'Стимулятор деления клеток'],
+    correct: [1],
+    type: 'single'
+  },
+  {
+    q: 'С какими процедурами сочетается EVOXA PEEL? (выберите все верные)',
+    options: ['Биоревитализация', 'Пластическая операция', 'Жёлтый пилинг', 'IPL-терапия'],
+    correct: [0, 3],
+    type: 'multi'
+  },
+  {
+    q: 'Ключевые выгоды для врача: (выберите все верные)',
+    options: ['Низкая стоимость процедуры', 'Предсказуемый результат', 'Шелушение, длительная реабилитация', 'Всесезонное применение'],
+    correct: [1, 3],
+    type: 'multi'
+  }
+];
+
+const PASSING_SCORE = 7; // из 10
+
+// ============================================================
+// STATE
+// ============================================================
+let state = {
+  currentLesson: 0,
+  completedLessons: [],
+  quizAnswers: {},     // {qIndex: [selectedIndices]}
+  quizCurrentQ: 0,
+  quizScore: null
+};
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  window.scrollTo({top:0, behavior:'instant'});
+}
+
+function goCourse(){
+  showPage('course');
+  loadLesson(0);
+}
+
+function goQuiz(){
+  showPage('quiz');
+  state.quizCurrentQ = 0;
+  state.quizAnswers = {};
+  renderQuizQuestion();
+}
+
+function goForm(){
+  showPage('form');
+}
+
+function goThanks(certNum){
+  showPage('thanks');
+  document.getElementById('thanksCertNum').textContent = '№ ' + certNum;
+}
+
+// ============================================================
+// LESSONS LIST RENDER
+// ============================================================
+function renderLessonsList(elId){
+  const el = document.getElementById(elId);
+  if(!el) return;
+  el.innerHTML = LESSONS.map((l,i) => `
+    <div class="lesson-row ${i===state.currentLesson ? 'active' : ''} ${state.completedLessons.includes(i) ? 'completed' : ''}" onclick="jumpToLesson(${i})">
+      <div class="lesson-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="lesson-name">${l.title}</div>
+      <div class="lesson-time">${l.duration}</div>
+      <div class="lesson-status">
+        <span class="check">✓ Пройден</span>
+        <span class="label">${i===state.currentLesson ? 'Сейчас' : ''}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function jumpToLesson(i){
+  if(document.getElementById('page-course').classList.contains('active')){
+    loadLesson(i);
+  } else {
+    showPage('course');
+    loadLesson(i);
+  }
+}
+
+function loadLesson(i){
+  state.currentLesson = i;
+  const l = LESSONS[i];
+  
+  document.getElementById('lessonEyebrow').textContent = `Урок ${i+1} из ${LESSONS.length}`;
+  document.getElementById('lessonTitle').textContent = l.title;
+  document.getElementById('lessonNotes').innerHTML = l.notes;
+  document.getElementById('playerFrame').src = l.embed;
+  
+  const progress = Math.round((state.completedLessons.length / LESSONS.length) * 100);
+  document.getElementById('progressValue').textContent = progress + '%';
+  
+  document.getElementById('prevBtn').disabled = (i === 0);
+  
+  const isLast = (i === LESSONS.length - 1);
+  document.getElementById('nextBtnText').textContent = isLast ? 'Перейти к тесту' : 'Следующий урок';
+  
+  renderLessonsList('lessonsListCourse');
+  renderLessonsList('lessonsListHome');
+}
+
+function nextLesson(){
+  if(!state.completedLessons.includes(state.currentLesson)){
+    state.completedLessons.push(state.currentLesson);
+  }
+  
+  if(state.currentLesson === LESSONS.length - 1){
+    goQuiz();
+  } else {
+    loadLesson(state.currentLesson + 1);
+  }
+}
+
+function prevLesson(){
+  if(state.currentLesson > 0){
+    loadLesson(state.currentLesson - 1);
+  }
+}
+
+// ============================================================
+// QUIZ
+// ============================================================
+function renderQuizQuestion(){
+  const q = QUIZ[state.quizCurrentQ];
+  const isMulti = q.type === 'multi';
+  const selected = state.quizAnswers[state.quizCurrentQ] || [];
+  
+  document.getElementById('quizProgressText').textContent = `Вопрос ${state.quizCurrentQ+1} из ${QUIZ.length}`;
+  const progressPct = ((state.quizCurrentQ) / QUIZ.length) * 100;
+  document.getElementById('quizProgressFill').style.width = progressPct + '%';
+  
+  const html = `
+    <div class="quiz-question">
+      <div class="quiz-q-num">${String(state.quizCurrentQ+1).padStart(2,'0')}</div>
+      <div class="quiz-q-text">${q.q}</div>
+      ${isMulti ? '<div class="quiz-q-hint">— Можно выбрать несколько вариантов —</div>' : ''}
+      
+      <div class="quiz-options">
+        ${q.options.map((opt, i) => `
+          <div class="quiz-option ${isMulti ? 'multi' : ''} ${selected.includes(i) ? 'selected' : ''}" onclick="selectQuizOption(${i})">
+            <div class="quiz-option-mark"></div>
+            <div class="quiz-option-text">${opt}</div>
+          </div>
+        `).join('')}
+      </div>
+      
+      <div class="quiz-actions">
+        <button class="player-nav-btn" ${state.quizCurrentQ === 0 ? 'disabled' : ''} onclick="prevQuizQuestion()">
+          <span>←</span><span>Предыдущий</span>
+        </button>
+        <button class="btn btn-primary" id="quizNextBtn" ${selected.length === 0 ? 'disabled' : ''} onclick="nextQuizQuestion()">
+          <span>${state.quizCurrentQ === QUIZ.length - 1 ? 'Завершить тест' : 'Следующий'}</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  `;
+  
+  document.getElementById('quizContent').innerHTML = html;
+  // Disable стиля для кнопки если нет выбора
+  if(selected.length === 0){
+    document.getElementById('quizNextBtn').style.opacity = '0.4';
+    document.getElementById('quizNextBtn').style.cursor = 'not-allowed';
+    document.getElementById('quizNextBtn').disabled = true;
+  }
+}
+
+function selectQuizOption(i){
+  const q = QUIZ[state.quizCurrentQ];
+  let selected = state.quizAnswers[state.quizCurrentQ] || [];
+  
+  if(q.type === 'multi'){
+    if(selected.includes(i)){
+      selected = selected.filter(x => x !== i);
+    } else {
+      selected.push(i);
+    }
+  } else {
+    selected = [i];
+  }
+  
+  state.quizAnswers[state.quizCurrentQ] = selected;
+  renderQuizQuestion();
+}
+
+function nextQuizQuestion(){
+  if(state.quizCurrentQ === QUIZ.length - 1){
+    showQuizResult();
+  } else {
+    state.quizCurrentQ++;
+    renderQuizQuestion();
+  }
+}
+
+function prevQuizQuestion(){
+  if(state.quizCurrentQ > 0){
+    state.quizCurrentQ--;
+    renderQuizQuestion();
+  }
+}
+
+function showQuizResult(){
+  let score = 0;
+  for(let i = 0; i < QUIZ.length; i++){
+    const correct = QUIZ[i].correct.slice().sort();
+    const given = (state.quizAnswers[i] || []).slice().sort();
+    if(correct.length === given.length && correct.every((v,j) => v === given[j])){
+      score++;
+    }
+  }
+  state.quizScore = score;
+  
+  const passed = score >= PASSING_SCORE;
+  
+  document.getElementById('quizProgressFill').style.width = '100%';
+  document.getElementById('quizProgressText').textContent = 'Тест завершён';
+  
+  const html = `
+    <div class="quiz-result">
+      <div class="result-icon ${passed ? '' : 'failed'}">${passed ? '✓' : '×'}</div>
+      <div class="result-score ${passed ? '' : 'failed'}">${score} / ${QUIZ.length}</div>
+      <h2 class="result-title">${passed ? 'Тест успешно пройден' : 'Тест не пройден'}</h2>
+      <p class="result-desc">
+        ${passed 
+          ? `Поздравляем! Вы успешно ответили на ${score} вопросов из ${QUIZ.length}. Теперь заполните данные для получения именного сертификата.` 
+          : `К сожалению, вы ответили правильно только на ${score} из ${QUIZ.length} вопросов. Проходной балл — ${PASSING_SCORE}. Вы можете пересдать тест прямо сейчас или вернуться к материалам курса.`
+        }
+      </p>
+      <div class="quiz-actions" style="justify-content:center;margin-top:0">
+        ${passed 
+          ? '<button class="btn btn-primary" onclick="goForm()"><span>Получить сертификат</span><span class="arrow">→</span></button>'
+          : '<button class="btn btn-outline" onclick="goCourse()"><span>К материалам</span></button><button class="btn btn-primary" onclick="goQuiz()"><span>Пересдать тест</span><span class="arrow">→</span></button>'
+        }
+      </div>
+    </div>
+  `;
+  document.getElementById('quizContent').innerHTML = html;
+}
+
+// ============================================================
+// FORM
+// ============================================================
+let formState = {
+  type: null,
+  consent: false
+};
+
+function selectType(type){
+  formState.type = type;
+  document.querySelectorAll('.form-type-btn').forEach(b => {
+    b.classList.toggle('selected', b.dataset.type === type);
+  });
+  document.getElementById('clinicRow').classList.toggle('visible', type === 'clinic');
+}
+
+function toggleConsent(){
+  formState.consent = !formState.consent;
+  document.getElementById('consentBox').classList.toggle('checked', formState.consent);
+}
+
+async function submitForm(e){
+  e.preventDefault();
+  
+  const errorEl = document.getElementById('formError');
+  errorEl.classList.remove('visible');
+  
+  if(!formState.type){
+    showError('Выберите тип специалиста');
+    return;
+  }
+  if(!formState.consent){
+    showError('Необходимо согласие на обработку персональных данных');
+    return;
+  }
+  
+  const clinicName = formState.type === 'clinic' ? document.getElementById('fld-clinic').value.trim() : '';
+  if(formState.type === 'clinic' && !clinicName){
+    showError('Укажите название клиники');
+    return;
+  }
+  
+  const payload = {
+    token: TOKEN,
+    action: 'register',
+    fullName: document.getElementById('fld-name').value.trim(),
+    type: formState.type,
+    clinicName: clinicName,
+    city: document.getElementById('fld-city').value.trim(),
+    phone: document.getElementById('fld-phone').value.trim(),
+    email: document.getElementById('fld-email').value.trim(),
+    consent: formState.consent,
+    course: COURSE_NAME,
+    quizScore: state.quizScore + '/' + QUIZ.length
+  };
+  
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="loader"></span>';
+  
+  try {
+    // Apps Script не возвращает CORS headers на GET preflight, поэтому используем text/plain
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload),
+      redirect: 'follow'
+    });
+    
+    const data = await res.json();
+    
+    if(data.ok){
+      goThanks(data.certNumber);
+    } else {
+      showError('Ошибка: ' + (data.error || 'неизвестная'));
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Получить сертификат';
+    }
+  } catch(err){
+    showError('Ошибка соединения. Попробуйте ещё раз.');
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Получить сертификат';
+  }
+}
+
+function showError(msg){
+  const el = document.getElementById('formError');
+  el.textContent = msg;
+  el.classList.add('visible');
+}
+
+// ============================================================
+// INIT
+// ============================================================
+renderLessonsList('lessonsListHome');
+</script>
+
+</body>
+</html>
