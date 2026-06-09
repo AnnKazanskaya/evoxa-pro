@@ -673,7 +673,7 @@ input,select,textarea{font-family:inherit;color:inherit}
   .nav-link-back .text-full{display:none}
   
   .hero{padding:100px 20px 60px}
-  .hero-title{font-size:clamp(32px,9vw,52px)!important}
+  .hero-title{font-size:clamp(26px,7.5vw,42px)!important;word-break:break-word;hyphens:auto}
   .hero-lead{font-size:17px!important;margin-bottom:36px}
   .hero-meta{gap:32px;padding:24px 0;margin-bottom:36px}
   .hero-meta-value{font-size:15px}
@@ -945,7 +945,7 @@ input,select,textarea{font-family:inherit;color:inherit}
         <label class="form-checkbox-row" onclick="toggleConsent()">
           <span class="form-checkbox" id="consentBox"></span>
           <span class="form-checkbox-label">
-            Я согласен(а) на обработку персональных данных в соответствии с <a href="#" onclick="event.stopPropagation();alert('Политика конфиденциальности будет добавлена')">политикой конфиденциальности</a>
+            Я согласен(а) на обработку персональных данных в соответствии с <a href="#" onclick="event.preventDefault();event.stopPropagation();showPage('privacy')">политикой конфиденциальности</a>
           </span>
         </label>
         
@@ -977,6 +977,78 @@ input,select,textarea{font-family:inherit;color:inherit}
           <span>На главный сайт</span>
           <span class="arrow">→</span>
         </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PAGE: PRIVACY ============ -->
+<main class="page" id="page-privacy">
+  <section class="form-section" style="padding-top:100px">
+    <div class="form-wrap" style="max-width:760px">
+      <div class="form-header" style="text-align:left;margin-bottom:40px">
+        <button onclick="goForm()" style="background:none;border:none;color:var(--text-muted);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;margin-bottom:32px;padding:0;display:inline-flex;align-items:center;gap:10px;transition:color .3s ease" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--text-muted)'">
+          <span>←</span> <span>Назад к форме</span>
+        </button>
+        <div class="eyebrow" style="text-align:left">— Политика конфиденциальности —</div>
+        <h1 style="text-align:left">Обработка персональных данных</h1>
+      </div>
+      
+      <div class="notes-body" style="background:var(--coal);padding:36px;border:1px solid var(--border)">
+        <p style="margin-bottom:20px;color:var(--text-muted);font-size:13px">Редакция от 9 июня 2026 года</p>
+        
+        <h3>1. Общие положения</h3>
+        <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных физических лиц, направляющих заявку на получение сертификата через сайт pro.evoxa.es (далее — Сайт).</p>
+        <p>Оператором обработки данных является EVOXA Studio SL (Барселона, Испания) — далее «Оператор».</p>
+        
+        <h3>2. Какие данные собираются</h3>
+        <ul>
+          <li>Фамилия, имя, отчество</li>
+          <li>Тип специалиста (частный врач или клиника)</li>
+          <li>Название клиники (если применимо)</li>
+          <li>Город</li>
+          <li>Номер телефона</li>
+          <li>Адрес электронной почты</li>
+          <li>Результат прохождения тестирования</li>
+          <li>Дата и время заполнения формы</li>
+        </ul>
+        
+        <h3>3. Цели обработки</h3>
+        <p>Персональные данные обрабатываются исключительно в следующих целях:</p>
+        <ul>
+          <li>Идентификация специалиста для выдачи именного сертификата</li>
+          <li>Формирование базы сертифицированных косметологов EVOXA</li>
+          <li>Информирование о профессиональных мероприятиях и обновлениях метода</li>
+          <li>Размещение специалиста на карте партнёров на сайте evoxa.es (с явного согласия)</li>
+          <li>Связь по вопросам сертификации и поддержки</li>
+        </ul>
+        
+        <h3>4. Хранение и защита</h3>
+        <p>Данные хранятся на серверах Google LLC (USA, EU) с использованием технических и организационных мер защиты. Доступ к базе имеют только уполномоченные сотрудники EVOXA Studio SL.</p>
+        <p>Данные хранятся в течение всего срока действия сертификации и не передаются третьим лицам без согласия специалиста.</p>
+        
+        <h3>5. Права специалиста</h3>
+        <p>Вы имеете право:</p>
+        <ul>
+          <li>Запросить доступ к своим персональным данным</li>
+          <li>Потребовать исправления или удаления данных</li>
+          <li>Отозвать согласие на обработку в любой момент</li>
+          <li>Подать жалобу в надзорный орган</li>
+        </ul>
+        
+        <h3>6. Контакты</h3>
+        <p>По вопросам обработки персональных данных:</p>
+        <p>Email: <a href="mailto:privacy@evoxa.es" style="color:var(--amber);text-decoration:underline">privacy@evoxa.es</a></p>
+        <p>Адрес: EVOXA Studio SL, Carrer de Gràcia, Barcelona, Spain</p>
+        
+        <h3>7. Согласие</h3>
+        <p>Отметив чекбокс на форме получения сертификата, вы подтверждаете, что прочитали и принимаете условия настоящей Политики, а также даёте явное согласие на обработку перечисленных выше персональных данных в указанных целях.</p>
+      </div>
+      
+      <div style="text-align:center;margin-top:36px">
+        <button class="btn btn-outline" onclick="goForm()" style="min-width:240px">
+          <span>← Вернуться к форме</span>
+        </button>
       </div>
     </div>
   </section>
